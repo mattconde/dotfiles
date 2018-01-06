@@ -2,7 +2,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="spaceship"
 
-plugins=(cp git node npm docker colorize zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(cp git node npm docker golang colorize zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
