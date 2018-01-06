@@ -13,9 +13,9 @@
         "curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh",
 
         "echo \"Install oh my zsh plugins\"",
-        "git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-completions",
-        "git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions",
-        "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting",
+        "git clone https://github.com/zsh-users/zsh-completions $~/.oh-my-zsh/custom/plugins/zsh-completions",
+        "git clone https://github.com/zsh-users/zsh-autosuggestions $~/.oh-my-zsh/custom/plugins/zsh-autosuggestions",
+        "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting",
 
         "echo \"Set zsh as default shell\"",
         "chsh -s /usr/local/bin/zsh",
@@ -29,10 +29,11 @@
         "echo \"Install Go\"",
         "brew install golang",
 
-        "echo \"Sort out some ENV variable like GOPATH and GOROOT n such TODO!!!!!!!!!\"",
-        "echo \"Set up Go TODO!!!!!!!!!\"",
-
         "echo \"Install cask apps\"",
-        "brew cask install alfred android-file-transfer bettertouchtool google-chrome 1password sourcetree totalfinder visual-studio-code vlc"
+        "brew cask install 1password alfred android-file-transfer google-chrome sourcetree spectacle vlc"
+    ],
+    "directories": [
+        "~/projects",
+        "~/projects/go"
     ]
 }
