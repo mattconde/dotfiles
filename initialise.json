@@ -1,0 +1,38 @@
+{
+    "commands": [
+        "echo \"Install zsh\"",
+        "brew install zsh",
+
+        "echo \"Install zsh extensions\"",
+        "brew install zsh-completions",
+
+        "echo \"Install oh-my-zsh\"",
+        "curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh",
+
+        "echo \"Install spaceship zsh theme\"",
+        "curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh",
+
+        "echo \"Install oh my zsh plugins\"",
+        "git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-completions",
+        "git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions",
+        "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting",
+
+        "echo \"Set zsh as default shell\"",
+        "chsh -s /usr/local/bin/zsh",
+
+        "echo \"Install tree\"",
+        "brew install tree",
+
+        "echo \"Install Node\"",
+        "brew install node",
+
+        "echo \"Install Go\"",
+        "brew install golang",
+
+        "echo \"Sort out some ENV variable like GOPATH and GOROOT n such TODO!!!!!!!!!\"",
+        "echo \"Set up Go TODO!!!!!!!!!\"",
+
+        "echo \"Install cask apps\"",
+        "brew cask install alfred android-file-transfer bettertouchtool google-chrome 1password sourcetree totalfinder visual-studio-code vlc"
+    ]
+}
