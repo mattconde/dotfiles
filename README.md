@@ -18,11 +18,20 @@ brew install python3
 git clone --recursive git@github.com:mattconde/dotfiles.git $HOME/projects/dotfiles
 ```
 
-## fire off the dotfiles
+## Fresh mac
+
+Use dotty against both configs
 
 ```
-cd ./dotfiles
 ./dotty/dotty.py initialise.json
 
+./dotty/dotty.py config.json
+```
+
+## Updating
+
+In most cases a `git pull` should do the job, if there are new files follow it up by running dotty on the main config again.
+
+```
 ./dotty/dotty.py config.json
 ```
