@@ -1,10 +1,10 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="spaceship"
-
 plugins=(cp git node npm docker golang colorize zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+source "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+ZSH_THEME="spaceship"
 
 # Spaceship config
 #

@@ -34,6 +34,8 @@
     ],
     "directories": [
         "~/projects",
-        "~/projects/go"
+        "~/projects/go/bin",
+        "~/projects/go/pkg",
+        "~/projects/go/src"
     ]
 }
