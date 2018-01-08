@@ -42,6 +42,10 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
+# Python bins
+#
+export PATH=$PATH:~/Library/Python/3.6/bin
+
 # Useful aliases
 #
 alias la='ls -la'
