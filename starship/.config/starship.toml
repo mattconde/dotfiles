@@ -1,0 +1,7 @@
+# inserts a blank line between shell prompts
+add_newline = false
+
+# wraps prompt over two lines
+[line_break]
+disabled = true
+
