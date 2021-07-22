@@ -45,6 +45,8 @@ alias gw="git branch --sort=-committerdate | head -n 10"
 alias gf="git fetch --all --prune"
 alias gclean="git clean -fdx"
 
+echo "headers, dotfiles, z, g, ga, gf, gw, gclean"
+
 function output_colors() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
