@@ -2,37 +2,39 @@
 ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
 ZSH_COLORIZE_STYLE="colorful"
 
-HISTFILE="$HOME/.zsh_history"
-HIST_STAMPS="yyyy-mm-dd"
-HISTSIZE=100000
-HISTFILESIZE=10000
-SAVEHIST=7000
+HISTFILE="~/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 TERM=xterm-256color
 export SHELL=`which zsh`
 export EDITOR=nvim
-export GREP_OPTIONS='--color=auto'
+export GREP_OPTIONS="--color=auto"
 export CLICOLOR=1
 
-# options
+# disable error sound
 setopt nobeep
+
+# auto change directory
 setopt auto_cd
 
 # aliases
 alias ls="exa"
 alias l="exa --all --header --long --icons --git --group --accessed --modified --created"
-alias cat="bat" # ~/.config/bat/config
+alias cat="bat"
 alias headers="httpstat"
 alias vim="~/local/nvim/bin/nvim"
-alias vimconfig="cd ~/.config/nvim"
-alias z="cat ~/.config/zsh/.zshrc"
+alias dotfiles="cd ~/.dotfiles"
+alias z="bat ~/.config/zsh/.zshrc"
 
-alias g='git'
-alias ga='git add .'
-alias gst='git status'
-alias gcm='git commit -m'
+alias g="git"
+alias ga="git add ."
+alias gst="git status"
+alias gcm="git commit -m"
 alias gw="git branch --sort=-committerdate | head -n 10"
 alias gf="git fetch --all --prune"
-alias gclean='git clean -fdx'
+alias gclean="git clean -fdx"
 
 function output_colors() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
@@ -54,8 +56,8 @@ source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Must follow zsh-syntax-highlighting
 source ~/.config/zsh/zsh-history-substring-search.zsh
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
 
 # Must add completions to fpath after sourcing
 source ~/.config/zsh/zsh-completions/zsh-completions.plugin.zsh
