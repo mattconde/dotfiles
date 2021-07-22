@@ -17,17 +17,9 @@ export CLICOLOR=1
 setopt nobeep
 setopt auto_cd
 
-# key binds
-bindkey '^v' edit-command-line
-
-bindkey '^k' up-line-or-search
-bindkey '^j' down-line-or-search
-bindkey '^h' backward-char
-bindkey '^l' forward-char
-
 # aliases
 alias ls="exa"
-alias l="exa -laBH"
+alias l="exa --all --header --long --icons --git --group --accessed --modified --created"
 alias cat="bat" # ~/.config/bat/config
 alias headers="httpstat"
 alias vim="~/local/nvim/bin/nvim"
@@ -46,12 +38,24 @@ function output_colors() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
+# iTerm2 Shell Integration - https://iterm2.com/documentation-shell-integration.html
+# eg. Drag & drop, History integration, Recent directories OS wide
 source ~/.config/zsh/.iterm2_shell_integration.zsh
+
+#
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Need to config edit-command-line before sourcing zsh-syntax-highlighting
 autoload edit-command-line; zle -N edit-command-line
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# zsh-history-substring-search - https://github.com/zsh-users/zsh-history-substring-search
+# Fish shell's history search feature, where you can type in any part of any command from history and then press chosen keys, such as the UP and DOWN arrows, to cycle through matches.
+# Must follow zsh-syntax-highlighting
+source ~/.config/zsh/zsh-history-substring-search.zsh
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # Must add completions to fpath after sourcing
 source ~/.config/zsh/zsh-completions/zsh-completions.plugin.zsh
