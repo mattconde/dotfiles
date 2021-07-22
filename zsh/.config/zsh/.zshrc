@@ -2,10 +2,19 @@
 ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
 ZSH_COLORIZE_STYLE="colorful"
 
-HISTFILE="~/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
-setopt appendhistory
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=100000
+export HISTSIZE=100000
+export HISTTIMEFORMAT="[%F %T] "
+
+# add timestamp to history
+setopt EXTENDED_HISTORY
+# immediately append to history
+setopt INC_APPEND_HISTORY
+# find no dupes to history
+setopt HIST_FIND_NO_DUPS
+# save no dupes to history
+setopt HIST_IGNORE_ALL_DUPS
 
 TERM=xterm-256color
 export SHELL=`which zsh`
