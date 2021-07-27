@@ -6,6 +6,7 @@ require('telescope').setup {
     vimgrep_arguments = {
       'rg',
       '--vimgrep',
+      '--hidden',
     },
     layout_strategy = "vertical",
     prompt_prefix = "> ",
