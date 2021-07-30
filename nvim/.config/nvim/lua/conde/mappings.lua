@@ -8,6 +8,13 @@ vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true })
 -- avoid unintentional switching to Ex mode
 vim.api.nvim_set_keymap("n", "Q", "", { noremap = true })
 
+-- correct Y behaviour to be similar to C / D
+vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
+
+-- when using n/N keep result centered on screen
+vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true })
+vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true })
+
 -- disable search highlighting
 vim.api.nvim_set_keymap("n", "<leader>a", "<cmd>set nohlsearch<cr>", { noremap = true })
 
@@ -29,6 +36,10 @@ vim.api.nvim_set_keymap("n", "<s-left>", "<cmd>vsplit<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<s-down>", "<cmd>split<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<s-up>", "<cmd>split<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<s-right>", "<cmd>vsplit<cr>", { noremap = true })
+
+-- move selected lines
+vim.api.nvim_set_keymap("v", "J", ":m '>+1<cr>gv=gv", { noremap = true })
+vim.api.nvim_set_keymap("v", "K", ":m '<-2<cr>gv=gv", { noremap = true })
 
 -- search word under cursor in buffer
 vim.api.nvim_set_keymap("n", "<c-s>", "/<c-r><c-w><cr>", { noremap = true })
