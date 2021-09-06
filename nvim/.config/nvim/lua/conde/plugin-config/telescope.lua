@@ -1,5 +1,10 @@
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
+local previewers = require('telescope.previewers')
+local pickers = require('telescope.pickers')
+local sorters = require('telescope.sorters')
+local finders = require('telescope.finders')
+local utils = require('telescope.utils')
 
 require('telescope').setup {
   defaults = {
@@ -13,7 +18,7 @@ require('telescope').setup {
     selection_caret = "> ",
     entry_prefix = "  ",
     initial_mode = "insert",
-    path_display = { "tail" },
+    path_display = { "absolute" },
     mappings = {
       n = {
         ['<esc>'] = actions.close,
@@ -34,27 +39,44 @@ require('telescope').setup {
 
 require('telescope').load_extension('gh')
 
--- setup module
+-- actions
+
+local function live_grep_directory(prompt_bufnr)
+  -- live grep within directory
+  local content = action_state.get_selected_entry(prompt_bufnr)
+  print('grep string in: ' .. content[1])
+  actions._close(prompt_bufnr, true)
+  require('telescope.builtin').live_grep({
+    prompt_title = 'Find in - ' .. content[1],
+    cwd = content[1],
+  })
+end
+
 local M = {}
 
-M.file_browser = function()
-  require('telescope.builtin').file_browser({
-    attach_mappings = function(prompt_bufnr, map)
-      -- live grep within file browser CWD
-      map('i', '<C-g>', function()
-        local content = action_state.get_selected_entry(prompt_bufnr)
-        actions._close(prompt_bufnr, true)
-        require('telescope.builtin').grep_string({
-          only_sort_text = true,
-          search = '',
-          prompt_title = 'Find - ' .. content.cwd,
-          cwd = content.cwd,
-        })
-      end)
+M.search_directories = function()
+  print('cwd: ' .. vim.fn.getcwd())
 
+  -- find * -type d
+  local stdout, ret, stderr = utils.get_os_command_output({
+    'find',
+    vim.fn.getcwd(),
+    '-type',
+    'd'
+  }, vim.fn.getcwd())
+
+  pickers.new {
+    results_title = 'Pick a directory',
+    finder = finders.new_table {
+      results = stdout,
+    },
+    sorter = sorters.get_fuzzy_file(),
+    attach_mappings = function(_, map)
+      map("i", "<cr>", live_grep_directory)
+      map("n", "<cr>", live_grep_directory)
       return true
     end
-  })
+  }:find()
 end
 
 return M

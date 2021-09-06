@@ -61,8 +61,8 @@ vim.api.nvim_set_keymap("n", "<leader>=", "<cmd>vim.lsp.buf.formatting()<cr>", {
 -- explore files
 vim.api.nvim_set_keymap("n", "<c-p>", [[<cmd>lua require('telescope.builtin').git_files()<cr>]], { noremap = true })
 
--- file tree
-vim.api.nvim_set_keymap("n", "<c-e>", [[<cmd>lua require('conde.plugin-config.telescope').file_browser()<cr>]], { noremap = true })
+-- live grep in project directory
+vim.api.nvim_set_keymap("n", "<c-e>", [[<cmd>lua require('conde.plugin-config.telescope').search_directories()<cr>]], { noremap = true })
 
 -- live grep text
 vim.api.nvim_set_keymap("n", "<c-g>", [[<cmd>lua require('telescope.builtin').live_grep { only_sort_text = true, search = '' }<cr>]], { noremap = true })

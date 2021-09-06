@@ -2,7 +2,6 @@ require('conde/options')
 require('conde/mappings')
 require('conde/lsp/efm')
 
-require('conde/lsp/flow')
 require('conde/lsp/tsserver')
 
 require('conde/lsp/css')
