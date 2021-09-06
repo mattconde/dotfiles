@@ -45,6 +45,9 @@ alias gw="git branch --sort=-committerdate | head -n 10"
 alias gf="git fetch --all --prune"
 alias gclean="git clean -fdx"
 
+alias disableDev="sudo spctl --master-disable"
+alias enableDev="sudo spctl --master-enable"
+
 echo "aliases: headers, dotfiles, z, g, ga, gf, gw, gclean"
 
 function output_colors() {
@@ -76,4 +79,5 @@ fpath=(~/.config/zsh/zsh-completions/src $fpath)
 
 autoload -U compinit && compinit
 
+eval $(thefuck --alias)
 eval "$(starship init zsh)"
