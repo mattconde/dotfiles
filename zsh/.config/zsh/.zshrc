@@ -44,6 +44,7 @@ alias gcm="git commit -m"
 alias gw="git branch --sort=-committerdate | head -n 10"
 alias gf="git fetch --all --prune"
 alias gclean="git clean -fdx"
+alias gdb='git branch | grep -v "develop" | xargs git branch -D'
 
 alias disableDev="sudo spctl --master-disable"
 alias enableDev="sudo spctl --master-enable"
