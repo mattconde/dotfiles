@@ -6,8 +6,17 @@ Plug 'neovim/nvim-lspconfig'
 " Treesitter!
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" auto-complete - sources
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-calc'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-emoji'
+Plug 'f3fora/cmp-spell'
+
 " auto-complete
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-cmp'
 
 " theme
 Plug 'dracula/vim', { 'as': 'dracula' }
