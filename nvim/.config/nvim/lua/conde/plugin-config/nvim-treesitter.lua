@@ -1,9 +1,12 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = {}, -- List of parsers to ignore installing
+  ensure_installed = "maintained", -- or a list of language parsers to install
+  ignore_install = {}, -- list of parsers to ignore installing
   highlight = {
-    enable = true, -- false will disable the whole extension
+    enable = true,
     disable = {}, -- list of language that will be disabled
+  },
+  indent = {
+    enable = true,
   },
 }
 
