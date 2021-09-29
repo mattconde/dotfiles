@@ -6,22 +6,6 @@ Plug 'neovim/nvim-lspconfig'
 " Treesitter!
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" snippets
-Plug 'L3MON4D3/LuaSnip'
-
-" auto-complete - sources
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-calc'
-Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'hrsh7th/cmp-emoji'
-Plug 'f3fora/cmp-spell'
-Plug 'saadparwaiz1/cmp_luasnip'
-
-" auto-complete
-Plug 'hrsh7th/nvim-cmp'
-
 " theme
 Plug 'dracula/vim', { 'as': 'dracula' }
 
@@ -42,8 +26,21 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-github.nvim'
 
-" helps find project root
-Plug 'airblade/vim-rooter'
+" snippets
+Plug 'L3MON4D3/LuaSnip'
+
+" auto-complete - sources
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-calc'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-emoji'
+Plug 'f3fora/cmp-spell'
+Plug 'saadparwaiz1/cmp_luasnip'
+
+" auto-complete
+Plug 'hrsh7th/nvim-cmp'
 
 " editorconfig support
 Plug 'editorconfig/editorconfig-vim'
