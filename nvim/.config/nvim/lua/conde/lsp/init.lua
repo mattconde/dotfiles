@@ -9,24 +9,91 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 local mappings = require('conde/mappings')
 local on_attach = function(client, bufnr)
   mappings.lsp_mappings(client, bufnr)
-
-  -- so that the only client with format capabilities is efm
-  if client.name ~= 'efm' then
-    client.resolved_capabilities.document_formatting = false
-  end
-
-  if client.resolved_capabilities.document_formatting then
-    vim.cmd [[
-          augroup Format
-            au! * <buffer>
-            au BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)
-          augroup END
-        ]]
-  end
 end
 
-local efmSetup = require('conde/lsp/efm')
-efmSetup(on_attach, capabilities)
+lsp_config.diagnosticls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {
+    "javascript",
+    "javascript.jsx",
+    "javascriptreact",
+    "typescriptreact",
+  },
+  init_options = {
+    filetypes = {
+      javascript = "eslint",
+      ["javascript.jsx"] = "eslint",
+      javascriptreact = "eslint",
+      typescriptreact = "eslint",
+    },
+    formatFiletypes = {
+      javascript = "prettier",
+      ["javascript.jsx"] = "prettier",
+      javascriptreact = "prettier",
+      typescriptreact = "prettier",
+    },
+    linters = {
+      eslint = {
+        sourceName = "eslint",
+        command = "./node_modules/.bin/eslint",
+        args = {
+          "--stdin",
+          "--stdin-filename",
+          "%filepath",
+          "--format",
+          "json",
+        },
+        rootPatterns = {
+          ".eslintrc",
+          ".eslintrc.json",
+          ".eslintrc.cjs",
+          ".eslintrc.js",
+          ".eslintrc.yml",
+          ".eslintrc.yaml"
+        },
+        debounce = 40,
+        parseJson = {
+          errorsRoot = "[0].messages",
+          line = "line",
+          column = "column",
+          endLine = "endLine",
+          endColumn = "endColumn",
+          message = "${message} [${ruleId}]",
+          security = "severity",
+        },
+        securities = {
+          [2] = "error",
+          [1] = "warning"
+        }
+      },
+    },
+    formatters = {
+      prettier = {
+        sourceName = "prettier",
+        command = "./node_modules/.bin/prettier",
+        args = {
+          "--stdin-filepath",
+          "%filepath",
+        },
+        debounce = 40,
+        rootPatterns = {
+          ".prettierrc",
+          ".prettierrc.json",
+          ".prettierrc.toml",
+          ".prettierrc.json",
+          ".prettierrc.yml",
+          ".prettierrc.yaml",
+          ".prettierrc.json5",
+          ".prettierrc.js",
+          ".prettierrc.cjs",
+          "prettier.config.js",
+          "prettier.config.cjs"
+        },
+      }
+    },
+  },
+}
 
 -- npm install -g bash-language-server
 lsp_config.bashls.setup{
@@ -59,7 +126,7 @@ lsp_config.jsonls.setup{
 }
 
 -- set the path to the sumneko installation
-local sumneko_root_path = '/Users/gbmajaco/projects/lua-language-server'
+local sumneko_root_path = '~/projects/lua-language-server'
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 
 lsp_config.sumneko_lua.setup{
