@@ -26,6 +26,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-github.nvim'
 
+" git signs - requires plenary
+Plug 'lewis6991/gitsigns.nvim'
+
 " snippets
 Plug 'L3MON4D3/LuaSnip'
 
@@ -42,11 +45,21 @@ Plug 'saadparwaiz1/cmp_luasnip'
 " auto-complete
 Plug 'hrsh7th/nvim-cmp'
 
+" Visual LSP symbols
+Plug 'simrat39/symbols-outline.nvim'
+
 " editorconfig support
 Plug 'editorconfig/editorconfig-vim'
 
 " commenting out lines
 Plug 'tpope/vim-commentary'
+
+" statusline
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
+" motion / jump
+Plug 'phaazon/hop.nvim'
 
 " highlight colors
 Plug 'norcalli/nvim-colorizer.lua'
@@ -56,9 +69,6 @@ Plug 'styled-components/vim-styled-components'
 
 " graphql support
 Plug 'jparise/vim-graphql'
-
-" Visual LSP symbols
-Plug 'simrat39/symbols-outline.nvim'
 
 call plug#end()
 

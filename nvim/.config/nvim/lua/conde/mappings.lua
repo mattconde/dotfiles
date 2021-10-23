@@ -41,6 +41,9 @@ vim.api.nvim_set_keymap("n", "<s-right>", "<cmd>vsplit<cr>", { noremap = true })
 vim.api.nvim_set_keymap("v", "J", ":m '>+1<cr>gv=gv", { noremap = true })
 vim.api.nvim_set_keymap("v", "K", ":m '<-2<cr>gv=gv", { noremap = true })
 
+-- motion / jump / hop to character
+vim.api.nvim_set_keymap("n", "s", "<cmd>lua require'hop'.hint_char1()<cr>", { noremap = true })
+
 -- search word under cursor in buffer
 vim.api.nvim_set_keymap("n", "<c-s>", "/<c-r><c-w><cr>", { noremap = true })
 
