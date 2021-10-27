@@ -182,3 +182,9 @@ lsp_config.vimls.setup{
   capabilities = capabilities,
 }
 
+-- brew install rust-analyzer
+lsp_config.rust_analyzer.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
