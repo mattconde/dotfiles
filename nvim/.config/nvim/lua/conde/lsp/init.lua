@@ -19,6 +19,7 @@ lsp_config.diagnosticls.setup{
     "javascript.jsx",
     "javascriptreact",
     "typescriptreact",
+    "flowtype",
   },
   init_options = {
     filetypes = {
@@ -26,12 +27,7 @@ lsp_config.diagnosticls.setup{
       ["javascript.jsx"] = "eslint",
       javascriptreact = "eslint",
       typescriptreact = "eslint",
-    },
-    formatFiletypes = {
-      javascript = "prettier",
-      ["javascript.jsx"] = "prettier",
-      javascriptreact = "prettier",
-      typescriptreact = "prettier",
+      flowtype = "eslint",
     },
     linters = {
       eslint = {
@@ -67,30 +63,6 @@ lsp_config.diagnosticls.setup{
           [1] = "warning"
         }
       },
-    },
-    formatters = {
-      prettier = {
-        sourceName = "prettier",
-        command = "./node_modules/.bin/prettier",
-        args = {
-          "--stdin-filepath",
-          "%filepath",
-        },
-        debounce = 40,
-        rootPatterns = {
-          ".prettierrc",
-          ".prettierrc.json",
-          ".prettierrc.toml",
-          ".prettierrc.json",
-          ".prettierrc.yml",
-          ".prettierrc.yaml",
-          ".prettierrc.json5",
-          ".prettierrc.js",
-          ".prettierrc.cjs",
-          "prettier.config.js",
-          "prettier.config.cjs"
-        },
-      }
     },
   },
 }
@@ -159,7 +131,7 @@ lsp_config.flow.setup{
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "npx", "--no-install", "flow", "lsp" },
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx" },
+  filetypes = { "flowtype" },
   settings = {
     flow = {
       lazyMode = "ide",
