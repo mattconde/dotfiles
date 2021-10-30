@@ -3,6 +3,7 @@ require('conde/mappings')
 
 require('conde/lsp')
 
+require('conde/plugin-config/formatter')
 require('conde/plugin-config/nvim-treesitter')
 require('conde/plugin-config/nvim-cmp')
 require('conde/plugin-config/telescope')

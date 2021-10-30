@@ -78,6 +78,9 @@ vim.api.nvim_set_keymap("n", "<leader>gp", [[<cmd>lua require('telescope').exten
 -- help tags
 vim.api.nvim_set_keymap("n", "<leader>h", [[<cmd>lua require('telescope.builtin').help_tags()<cr>]], { noremap = true })
 
+-- formatter.nvim format
+vim.api.nvim_set_keymap("n", "<leader>f", [[<cmd>Format<cr>]], { noremap = true })
+
 local M = {}
 
 M.lsp_mappings = function(_, bufnr)

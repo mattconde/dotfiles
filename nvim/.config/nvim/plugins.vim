@@ -1,15 +1,22 @@
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+" language actions - nvim lsp
+" linting          - nvim lsp diagnosticls 
+" auto formatting  - formatter.nvim
+
 " lsp
 Plug 'neovim/nvim-lspconfig'
 
-" Treesitter!
+" formatting
+Plug 'mhartington/formatter.nvim'
+
+" treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " theme
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" fern - file explorer
+" file explorer
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
