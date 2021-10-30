@@ -24,6 +24,11 @@ let g:fern#drawer_width = 45
 let g:fern#renderer = "nerdfont"
 let g:fern#disable_default_mappings = 1
 
+let hide_dirs  = '^\%(\.git\|node_modules\)$'
+let hide_files = '\%(\.DS_Store\|\.ruby-\)\+'
+
+let g:fern#default_exclude = hide_dirs . '\|' . hide_files
+
 function! FernInit() abort
   " movement keys
   nmap <buffer> h <Plug>(fern-action-collapse)
