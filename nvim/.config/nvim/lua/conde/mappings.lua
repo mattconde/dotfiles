@@ -25,6 +25,11 @@ vim.api.nvim_set_keymap("v", "x", '"_x', { noremap = true })
 -- toggle fern file tree
 vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>Fern . -drawer -reveal=% -toggle<cr>", { noremap = true })
 
+-- quickfix lists
+vim.api.nvim_set_keymap("n", "<c-j>", "<cmd>cnext<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-k>", "<cmd>cprev<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-q>", "<cmd>copen<cr>", { noremap = true })
+
 -- navigate splits with arrow keys
 vim.api.nvim_set_keymap("n", "<left>", "<c-w>h", { noremap = true })
 vim.api.nvim_set_keymap("n", "<down>", "<c-w>j", { noremap = true })
