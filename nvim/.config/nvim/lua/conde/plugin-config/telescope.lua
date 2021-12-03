@@ -39,44 +39,16 @@ require('telescope').setup {
 
 require('telescope').load_extension('gh')
 
--- actions
-
-local function live_grep_directory(prompt_bufnr)
-  -- live grep within directory
-  local content = action_state.get_selected_entry(prompt_bufnr)
-  print('grep string in: ' .. content[1])
-  actions._close(prompt_bufnr, true)
-  require('telescope.builtin').live_grep({
-    prompt_title = 'Find in - ' .. content[1],
-    cwd = content[1],
-  })
-end
-
 local M = {}
 
+-- live grep within current files directory
 M.search_directories = function()
-  print('cwd: ' .. vim.fn.getcwd())
-
-  -- find * -type d
-  local stdout, ret, stderr = utils.get_os_command_output({
-    'find',
-    vim.fn.getcwd(),
-    '-type',
-    'd'
-  }, vim.fn.getcwd())
-
-  pickers.new {
-    results_title = 'Pick a directory',
-    finder = finders.new_table {
-      results = stdout,
-    },
-    sorter = sorters.get_fuzzy_file(),
-    attach_mappings = function(_, map)
-      map("i", "<cr>", live_grep_directory)
-      map("n", "<cr>", live_grep_directory)
-      return true
-    end
-  }:find()
+  local path = vim.fn.expand('%:h')
+  local limitedPath = string.sub(path, -80)
+  require('telescope.builtin').live_grep({
+    prompt_title = 'Find in - ' .. limitedPath,
+    cwd = path,
+  })
 end
 
 return M
