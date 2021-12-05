@@ -30,7 +30,8 @@ setopt auto_cd
 
 # aliases
 alias ls="exa"
-alias l="exa --all --header --long --icons --git --group --accessed --modified --created"
+alias l="exa --all --header --long --icons --git --no-time --no-user"
+alias la="exa --all --header --long --icons --git --group --accessed --modified --created"
 alias cat="bat"
 alias headers="httpstat"
 alias vim="~/local/nvim/bin/nvim"
@@ -82,3 +83,5 @@ autoload -U compinit && compinit
 
 eval $(thefuck --alias)
 eval "$(starship init zsh)"
+export PATH="$(yarn global bin):$PATH"
+
