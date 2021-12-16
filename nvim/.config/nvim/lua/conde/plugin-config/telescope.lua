@@ -37,8 +37,6 @@ require('telescope').setup {
   }
 }
 
-require('telescope').load_extension('gh')
-
 local M = {}
 
 -- live grep within current files directory

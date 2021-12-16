@@ -23,7 +23,7 @@ vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true })
 vim.api.nvim_set_keymap("v", "x", '"_x', { noremap = true })
 
 -- toggle fern file tree
-vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>Fern . -drawer -reveal=% -toggle<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>:NvimTreeToggle<cr>", { noremap = true })
 
 -- quickfix lists
 vim.api.nvim_set_keymap("n", "<c-j>", "<cmd>cnext<cr>", { noremap = true })
