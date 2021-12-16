@@ -35,6 +35,7 @@ alias la="exa --all --header --long --icons --git --group --accessed --modified 
 alias cat="bat"
 alias vim="~/local/nvim/bin/nvim"
 alias dotfiles="cd ~/.dotfiles"
+alias projects="cd ~/projects"
 alias z="bat ~/.config/zsh/.zshrc"
 
 alias g="git"
