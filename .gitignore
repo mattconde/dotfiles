@@ -3,4 +3,5 @@ nvim/.config/nvim/.netrwhist
 nvim/.config/nvim/autoload/plugged/*
 nvim/.config/nvim/undodir/*
 nvim/.config/nvim/session
+nvim/.config/nvim/plugin
 
