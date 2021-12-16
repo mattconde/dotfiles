@@ -11,6 +11,7 @@ local on_attach = function(client, bufnr)
   mappings.lsp_mappings(client, bufnr)
 end
 
+-- npm install -g diagnostic-languageserver
 lsp_config.diagnosticls.setup{
   on_attach = on_attach,
   capabilities = capabilities,
@@ -127,6 +128,7 @@ lsp_config.sumneko_lua.setup{
   },
 }
 
+-- npm install -g flow-bin
 lsp_config.flow.setup{
   on_attach = on_attach,
   capabilities = capabilities,
