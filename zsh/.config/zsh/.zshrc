@@ -30,6 +30,7 @@ setopt auto_cd
 
 # aliases
 alias ls="exa"
+alias lt="exa --all --header --long --icons --git --no-time --no-user --tree --level=2 --ignore-glob=node_modules"
 alias l="exa --all --header --long --icons --git --no-time --no-user"
 alias la="exa --all --header --long --icons --git --group --accessed --modified --created"
 alias cat="bat"
@@ -44,15 +45,15 @@ alias gst="git status"
 alias gcm="git commit -m"
 alias gw="git branch --sort=-committerdate | head -n 10"
 alias gf="git fetch --all --prune"
-alias gclean="git clean -fdx"
-alias gdb='git branch | grep -v "develop" | xargs git branch -D'
+alias gcleanfiles="git clean -fdx"
+alias gcleanbranches='git branch | grep -v "develop" | xargs git branch -D'
 
 alias disableDev="sudo spctl --master-disable"
 alias enableDev="sudo spctl --master-enable"
 
-echo "aliases: headers, dotfiles, z, g, ga, gf, gw, gclean"
+echo "aliases: z, g, ga, gst, gcm, gf, gw, gcleanfiles, gcleanbranches"
 
-function output_colors() {
+function outputColors() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
