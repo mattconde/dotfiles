@@ -53,7 +53,8 @@ use {
 }
 
 -- theme
-use { 'dracula/vim', as = 'dracula' }
+-- use { 'dracula/vim', as = 'dracula' }
+use 'Mofiqul/dracula.nvim'
 
 -- file explorer
 use {
