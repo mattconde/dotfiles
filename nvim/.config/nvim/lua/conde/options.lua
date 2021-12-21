@@ -13,7 +13,6 @@ vim.o.colorcolumn = "80"
 vim.o.signcolumn = "yes"
 vim.o.showtabline = 0
 vim.o.ruler = true
-vim.o.guicursor = ""
 vim.wo.number = true
 vim.wo.relativenumber = false
 vim.wo.cursorline = true
