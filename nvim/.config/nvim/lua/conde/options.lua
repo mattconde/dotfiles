@@ -54,7 +54,7 @@ vim.cmd('set iskeyword+=-')
 
 -- times
 vim.o.timeoutlen = 500
-vim.o.ttimeoutlen = 50
+vim.o.ttimeoutlen = 10
 vim.o.updatetime= 300
 vim.o.shortmess = "Ic"
 vim.o.laststatus = 2
