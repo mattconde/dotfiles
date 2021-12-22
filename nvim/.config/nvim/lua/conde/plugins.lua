@@ -110,17 +110,16 @@ use {
 -- editorconfig support
 use 'editorconfig/editorconfig-vim'
 
+-- surrounding movements
+use {
+  "blackCauldron7/surround.nvim",
+  config = get_config('surround')
+}
+
 -- commenting out lines
 use {
   'numToStr/Comment.nvim',
   config = get_config('comment')
-}
-
--- motion / jump
-use {
-  'phaazon/hop.nvim',
-  requires = {},
-  config = get_config('hop')
 }
 
 -- highlight colors
