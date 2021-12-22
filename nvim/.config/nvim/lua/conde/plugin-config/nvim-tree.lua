@@ -10,6 +10,7 @@ require'nvim-tree'.setup {
       list = {
         { key = "h", cb = tree_cb("close_node") },
         { key = "l", cb = tree_cb("edit") },
+        { key = "n", cb = tree_cb("create") },
       }
     }
   }
