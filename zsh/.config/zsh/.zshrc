@@ -14,7 +14,8 @@ autoload edit-command-line; zle -N edit-command-line
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zsh-history-substring-search - https://github.com/zsh-users/zsh-history-substring-search
-# Fish shell's history search feature, where you can type in any part of any command from history and then press chosen keys, such as the UP and DOWN arrows, to cycle through matches.
+# Fish shell's history search feature, where you can type in any part of any command from
+# history and then press chosen keys, such as the UP and DOWN arrows, to cycle through matches.
 # Must follow zsh-syntax-highlighting
 source ~/.config/zsh/zsh-history-substring-search.zsh
 
@@ -72,18 +73,8 @@ export KEYTIMEOUT=1
 # Mappings
 ###
 
-#
-bindkey -v
-
-# switch to command mode with jj
-bindkey 'jk' vi-cmd-mode
-
-# `v` is already mapped to visual mode, so we need to use a different key to
-# open Vim
-bindkey -M vicmd "^V" edit-command-line
-
-bindkey -M vicmd "k" history-substring-search-up
-bindkey -M vicmd "j" history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 ###
 # Aliases
