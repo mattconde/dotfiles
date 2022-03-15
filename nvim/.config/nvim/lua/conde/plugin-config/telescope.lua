@@ -1,12 +1,7 @@
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
-local previewers = require('telescope.previewers')
-local pickers = require('telescope.pickers')
-local sorters = require('telescope.sorters')
-local finders = require('telescope.finders')
-local utils = require('telescope.utils')
 
-function getPath(str)
+local function getPath(str)
   if str == nil then
     return str
   end

@@ -5,7 +5,7 @@ local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 -- returns the require for use in `config` parameter of packer's use
 -- expects the name of the config file
-function get_config(name)
+local function get_config(name)
   return string.format("require(\"conde/plugin-config/%s\")", name)
 end
 
@@ -30,7 +30,7 @@ packer.reset()
 use 'wbthomason/packer.nvim'
 
 -- language actions - nvim lsp
--- linting          - nvim lsp diagnosticls 
+-- linting          - nvim lsp diagnosticls
 -- auto formatting  - formatter.nvim
 
 -- lsp
