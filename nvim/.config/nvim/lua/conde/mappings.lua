@@ -22,7 +22,7 @@ keymap("n", "n", "nzzzv", options)
 keymap("n", "N", "Nzzzv", options)
 
 -- disable search highlighting
-keymap("n", "<leader>a", "<cmd>set nohlsearch<cr>", options)
+keymap("n", "<leader>a", '<cmd>let @/ = ""<cr>', options)
 
 -- change x behaviour so it pushes to the black hole register
 keymap("n", "x", '"_x', options)
