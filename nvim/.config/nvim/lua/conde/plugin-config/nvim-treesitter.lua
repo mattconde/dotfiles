@@ -11,7 +11,3 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-local parsername = require "nvim-treesitter.parsers".filetype_to_parsername
-
-parsername.typescript = "flowtype"
-

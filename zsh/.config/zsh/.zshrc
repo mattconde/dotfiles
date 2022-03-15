@@ -116,5 +116,5 @@ autoload -U compinit && compinit
 
 eval $(thefuck --alias)
 eval "$(starship init zsh)"
-export PATH="$HOME/local/nvim/bin:$(yarn global bin):$PATH"
+export PATH="$HOME/local/nvim/bin:$(yarn global bin):$HOME/projects/lua-language-server/bin:$PATH"
 

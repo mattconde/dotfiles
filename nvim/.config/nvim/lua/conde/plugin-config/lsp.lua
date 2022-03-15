@@ -20,7 +20,6 @@ lsp_config.diagnosticls.setup{
     "javascript.jsx",
     "javascriptreact",
     "typescriptreact",
-    "flowtype",
   },
   init_options = {
     filetypes = {
@@ -28,7 +27,6 @@ lsp_config.diagnosticls.setup{
       ["javascript.jsx"] = "eslint",
       javascriptreact = "eslint",
       typescriptreact = "eslint",
-      flowtype = "eslint",
     },
     linters = {
       eslint = {
@@ -98,42 +96,15 @@ lsp_config.jsonls.setup{
   capabilities = capabilities,
 }
 
--- set the path to the sumneko installation
-local sumneko_root_path = '~/projects/lua-language-server'
-local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
-
-lsp_config.sumneko_lua.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-        path = vim.split(package.path, ';'),
-      },
-      diagnostics = {
-        globals = {'vim'},
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        },
-      },
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
+-- clone and build lua-language-server & add to $PATH
+lsp_config.sumneko_lua.setup{}
 
 -- npm install -g flow-bin
 lsp_config.flow.setup{
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "npx", "--no-install", "flow", "lsp" },
-  filetypes = { "flowtype" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx" },
   settings = {
     flow = {
       lazyMode = "ide",
