@@ -14,7 +14,7 @@ keymap("n", "Q", "", options)
 -- correct Y behaviour to be similar to C / D
 keymap("n", "Y", "y$", options)
 
--- change p behaviour to stop overwriting the unnamed & unnamedplus register 
+-- change p behaviour to stop overwriting the unnamed & unnamedplus register
 keymap("v", "p", 'p:let @+=@0<cr>:let @"=@0<cr>', options)
 
 -- when using n/N keep result centered on screen
@@ -29,7 +29,7 @@ keymap("n", "x", '"_x', options)
 keymap("v", "x", '"_x', options)
 
 -- toggle fern file tree
-keymap("n", "<leader>e", "<cmd>:NvimTreeToggle<cr>", options)
+keymap("n", "<leader>e", "<cmd>:NvimTreeFindFileToggle<cr>", options)
 
 -- quickfix lists
 keymap("n", "<c-j>", "<cmd>cnext<cr>", options)
