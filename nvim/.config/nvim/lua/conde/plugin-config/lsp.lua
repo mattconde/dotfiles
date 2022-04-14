@@ -133,3 +133,9 @@ lsp_config.rust_analyzer.setup{
   capabilities = capabilities,
 }
 
+-- npm install -g yaml-language-server
+lsp_config.yamlls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
