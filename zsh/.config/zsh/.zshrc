@@ -89,6 +89,9 @@ alias vim="nvim"
 alias dotfiles="cd ~/.dotfiles"
 alias projects="cd ~/projects"
 alias z="bat ~/.config/zsh/.zshrc"
+alias s="source ~/.zshrc"
+
+alias t="tmux"
 
 alias g="git"
 alias ga="git add ."
