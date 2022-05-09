@@ -111,13 +111,55 @@ function outputColors() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
+function proj() {
+  local projectsDirectory=($(find ~/projects -type d -maxdepth 1))
+  local extraProjects=("~/.dotfiles")
+  local allProjects=""
+  for PROJECT_PATH in $projectsDirectory; do
+    eval fullPath="$PROJECT_PATH "
+    allProjects+="${fullPath}\n"
+  done
+
+  for PROJECT_PATH in $extraProjects; do
+    eval fullPath="$PROJECT_PATH"
+    allProjects+="${fullPath}\n"
+  done
+
+  local selectedProjectPath=$(echo $allProjects | fzf)
+  local selectedProjectBasename=$(basename $selectedProjectPath)
+  # remove all non-alpha characters
+  # ie. .dotfiles is handled differently in the commands below
+  local selectedProjectName="${selectedProjectBasename//[^[:alpha:]]/}"
+
+  tmux has-session -t $selectedProjectName
+  if [ $? != 0 ]
+  then
+    tmux new-session -s $selectedProjectName -c $selectedProjectPath -d
+    # open vim in first window
+    tmux send-keys -t $selectedProjectName:1 'vim' Enter
+    # create git windows
+    tmux new-window -t $selectedProjectName:2 -c $selectedProjectPath
+    tmux send-keys -t $selectedProjectName:2 'lazygit' Enter
+    # create spare window
+    tmux new-window -t $selectedProjectName:3 -c $selectedProjectPath
+  fi
+  # attach / switch
+  if [[ -z "$TMUX" ]]; then
+    tmux attach -t "$selectedProjectName"
+  else
+    tmux switch-client -t "$selectedProjectName"
+  fi
+}
+
 ###
 # Setups
 ###
 
 autoload -U compinit && compinit
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval $(thefuck --alias)
 eval "$(starship init zsh)"
+alias luamake="~/projects/lua-language-server/3rd/luamake/luamake"
 export PATH="$HOME/local/nvim/bin:$(yarn global bin):$HOME/projects/lua-language-server/bin:$PATH"
 
