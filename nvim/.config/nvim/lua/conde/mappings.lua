@@ -56,9 +56,6 @@ keymap("v", ">", ">gv", options)
 keymap("v", "J", ":m '>+1<cr>gv=gv", options)
 keymap("v", "K", ":m '<-2<cr>gv=gv", options)
 
--- motion / jump / hop to character
-keymap("n", "s", "<cmd>lua require'hop'.hint_char1()<cr>", options)
-
 -- search word under cursor in buffer
 keymap("n", "<c-s>", "/<c-r><c-w><cr>", options)
 
