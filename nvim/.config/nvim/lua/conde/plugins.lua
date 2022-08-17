@@ -52,6 +52,13 @@ use {
   run = ':TSUpdate'
 }
 
+-- treesitter - text objects
+use {
+  'nvim-treesitter/nvim-treesitter-textobjects',
+  config = get_config('nvim-treesitter'),
+  requires = { 'nvim-treesitter/nvim-treesitter', opt = true }
+}
+
 -- theme
 -- use { 'dracula/vim', as = 'dracula' }
 use 'Mofiqul/dracula.nvim'
