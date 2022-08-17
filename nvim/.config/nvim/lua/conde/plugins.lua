@@ -117,12 +117,6 @@ use {
 -- editorconfig support
 use 'editorconfig/editorconfig-vim'
 
--- surrounding movements
-use {
-  "blackCauldron7/surround.nvim",
-  config = get_config('surround')
-}
-
 -- commenting out lines
 use {
   'numToStr/Comment.nvim',
