@@ -54,7 +54,7 @@ setopt HIST_IGNORE_SPACE
 # when saving history older entries that dupe newer ones are omitted
 setopt HIST_SAVE_NO_DUPS
 
-TERM=xterm-256color
+export TERM=screen-256color
 export SHELL=`which zsh`
 export EDITOR=nvim
 export GREP_OPTIONS="--color=auto"
