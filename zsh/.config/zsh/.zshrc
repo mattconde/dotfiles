@@ -23,6 +23,9 @@ source ~/.config/zsh/zsh-history-substring-search.zsh
 source ~/.config/zsh/zsh-completions/zsh-completions.plugin.zsh
 fpath=(~/.config/zsh/zsh-completions/src $fpath)
 
+# web search aliases
+source ~/.config/zsh/web-search.zsh
+
 ###
 # Options
 ###
@@ -105,7 +108,10 @@ alias gcleanbranches='git branch | grep -v "develop" | xargs git branch -D'
 alias disableDev="sudo spctl --master-disable"
 alias enableDev="sudo spctl --master-enable"
 
-echo "aliases: z, g, ga, gst, gcm, gf, gw, gcleanfiles, gcleanbranches"
+echo "web search: google, ddg, github, yt"
+echo "git: g, ga, gst, gcm, gf, gw, gcleanfiles, gcleanbranches"
+echo "aliases: l, lt, la, z, s"
+echo ""
 
 function outputColors() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
