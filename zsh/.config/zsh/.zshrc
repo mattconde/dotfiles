@@ -98,11 +98,12 @@ alias t="tmux"
 
 alias g="git"
 alias ga="git add ."
+alias gc="git clean -fdx"
+alias gr="git clean -fdx && git restore ."
 alias gst="git status"
 alias gcm="git commit -m"
 alias gw="git branch --sort=-committerdate | head -n 10"
 alias gf="git fetch --all --prune"
-alias gcleanfiles="git clean -fdx"
 alias gcleanbranches='git branch | grep -v "develop" | xargs git branch -D'
 
 alias disableDev="sudo spctl --master-disable"
