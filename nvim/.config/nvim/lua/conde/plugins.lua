@@ -84,7 +84,10 @@ use {
 -- telescope
 use {
   'nvim-telescope/telescope.nvim',
-  requires = { {'nvim-lua/plenary.nvim'} },
+  requires = {
+    {'nvim-lua/plenary.nvim'},
+    {'nvim-telescope/telescope-live-grep-args.nvim'},
+  },
   config = get_config('telescope')
 }
 

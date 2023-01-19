@@ -69,6 +69,9 @@ keymap("n", "<c-e>", [[<cmd>lua require('conde.plugin-config.telescope').search_
 -- live grep text
 keymap("n", "<c-g>", [[<cmd>lua require('telescope.builtin').live_grep { only_sort_text = true, search = '' }<cr>]], options)
 
+-- live grep
+keymap("n", "<leader>g", [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>]], options)
+
 -- grep text under cursor
 keymap("n", "<c-f>", [[<cmd>lua require("telescope.builtin").grep_string { only_sort_text = true, search = vim.fn.expand("<cword>") }<cr>]], options)
 
@@ -78,11 +81,11 @@ keymap("n", "<leader>gb", [[<cmd>lua require('telescope.builtin').git_branches()
 -- git commits
 keymap("n", "<leader>gc", [[<cmd>lua require('telescope.builtin').git_commits()<cr>]], options)
 
+-- git commits for buffer
+keymap("n", "<leader>gf", [[<cmd>lua require('telescope.builtin').git_bcommits()<cr>]], options)
+
 -- git status
 keymap("n", "<leader>gs", [[<cmd>lua require('telescope.builtin').git_status()<cr>]], options)
-
--- github pull requests
-keymap("n", "<leader>gp", [[<cmd>lua require('telescope').extensions.gh.pull_request()<cr>]], options)
 
 -- help tags
 keymap("n", "<leader>h", [[<cmd>lua require('telescope.builtin').help_tags()<cr>]], options)
