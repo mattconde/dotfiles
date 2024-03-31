@@ -100,6 +100,7 @@ alias ga="git add ."
 alias gc="git clean -fdx"
 alias gr="git clean -fdx && git restore ."
 alias gst="git status"
+alias gs="git status --short && git diff --shortstat"
 alias gcm="git commit -m"
 alias gw="git branch --sort=-committerdate | head -n 10"
 alias gf="git fetch --all --prune"
@@ -115,6 +116,11 @@ echo ""
 
 function outputColors() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
+}
+
+function timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
 function p() {
@@ -146,7 +152,6 @@ function p() {
 autoload -U compinit && compinit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval $(thefuck --alias)
 eval "$(starship init zsh)"
 alias luamake="~/projects/lua-language-server/3rd/luamake/luamake"
 export PATH="$HOME/local/nvim/bin:$(yarn global bin):$HOME/projects/lua-language-server/bin:$PATH"
